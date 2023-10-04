@@ -1,0 +1,14 @@
+<h1>Dragon Ball Z</h1>
+<hr />
+
+<div class="row">
+  <div class="col">
+    <!-- Aqui es donde se mandan a llamar los personajes de main-page.component 10. @Input -->
+    <app-personajes></app-personajes>
+  </div>
+
+  <div class="col">
+    <!-- Aqui seenvia el personaje al componente padre 12. @Outputs y EventEmitter -->
+    <app-agregar [nuevo]="nuevo"></app-agregar>
+  </div>
+</div>
