@@ -1,0 +1,30 @@
+<mat-grid-list cols="1" *ngIf="!hero; else divHeroe"> </mat-grid-list>
+<ng-template #divHeroe>
+  <div class="grid">
+    <div class="col-12 sm:col-6">
+      <h1>
+        {{ hero.superhero }} -- <small> {{ hero.alter_ego }}</small>
+      </h1>
+      <mat-divider></mat-divider>
+      <br />
+      <div class="image-container">
+        <img [src]="hero | heroImage" alt="" />
+      </div>
+    </div>
+    <div class="col-12 sm:col-6">
+      <h1>{{ hero.publisher }}</h1>
+      <mat-divider></mat-divider>
+      <br />
+      <mat-list>
+        <mat-list-item> {{ hero.first_appearance }} </mat-list-item>
+        <mat-list-item> {{ hero.characters }} </mat-list-item>
+        <mat-list-item> {{ hero.publisher }} </mat-list-item>
+        <mat-list-item> {{ hero.alter_ego }} </mat-list-item>
+      </mat-list>
+    </div>
+  </div>
+  <br />
+  <button mat-button color="warn" (click)="regresar()">Regresar</button>
+</ng-template>
+
+
