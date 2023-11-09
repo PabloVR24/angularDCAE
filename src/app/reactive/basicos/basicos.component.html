@@ -1,1 +1,62 @@
-<p>basicos works!</p>
+<h1>Reactivos: Basicos</h1>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <form (ngSubmit)="guardar()" action="" autocomplete="off" [formGroup]="miFormulario">
+            <!-- Producto -->
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label" for="product">Producto</label>
+                <div class="col-sm-9">
+                    <input type="text" name="product" formControlName="product" id="product" class="form-control"
+                        placeholder="Nombre del producto">
+                    <span *ngIf="campoEsValido('product')" class="form-text text-danger">Debe tener
+                        minimo 3
+                        letras</span>
+                </div>
+            </div>
+            <!-- Precio -->
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label" for="price">Precio</label>
+                <div class="col-sm-9">
+                    <input type="number" name="price" id="price" class="form-control" formControlName="price"
+                        placeholder="Precio del producto">
+                    <span *ngIf="campoEsValido('price')" class="form-text text-danger">El precio debe de ser mayor o
+                        igual a
+                        0</span>
+                    <!-- <span class="form-text text-danger">Debe tener minimo 3 letras</span> -->
+                </div>
+            </div>
+            <!-- Precio -->
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label" for="stock">Existencias</label>
+                <div class="col-sm-9">
+                    <input type="number" name="stock" id="stock" class="form-control" formControlName="stock"
+                        placeholder="Existencias del producto">
+                    <span *ngIf="campoEsValido('stock')" class="form-text text-danger">Existencias debe de ser mayor o
+                        igual a
+                        0</span>
+                    <!-- <span class="form-text text-danger">Debe tener minimo 3 letras</span> -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col"><button type="submit" class="btn btn-primary float-end">Guardar</button></div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col"><span>Valid</span>
+        <pre> {{miFormulario.valid |json}} </pre>
+    </div>
+    <div class="col"><span>Value</span>
+        <pre> {{miFormulario.value |json}} </pre>
+    </div>
+    <div class="col"><span>Pristine</span>
+        <pre> {{miFormulario.pristine |json}} </pre>
+    </div>
+    <div class="col"><span>Touched</span>
+        <pre> {{miFormulario.touched |json}} </pre>
+
+    </div>

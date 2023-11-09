@@ -9,7 +9,7 @@
                 <label class="col-sm-3 col-form-label" for="product">Producto</label>
                 <div class="col-sm-9">
                     <input type="text" name="product" id="product" class="form-control"
-                        placeholder="Nombre del producto" ngModel required minlength="3">
+                        placeholder="Nombre del producto" [ngModel]="initForm.product" required minlength="3">
                     <span *ngIf="nombreValido()" class="form-text text-danger">Debe tener minimo 3 letras</span>
                 </div>
             </div>
@@ -18,7 +18,7 @@
                 <label class="col-sm-3 col-form-label" for="price">Precio</label>
                 <div class="col-sm-9">
                     <input type="number" name="price" id="price" class="form-control" placeholder="Precio del producto"
-                        ngModel required>
+                    [ngModel]="initForm.price" required>
                     <span *ngIf="precioValido()" class="form-text text-danger">El precio debe de ser mayor o igual a
                         0</span>
                     <!-- <span class="form-text text-danger">Debe tener minimo 3 letras</span> -->
@@ -28,8 +28,8 @@
             <div class="mb-3 row">
                 <label class="col-sm-3 col-form-label" for="stock">Existencias</label>
                 <div class="col-sm-9">
-                    <input type="number" name="stock" id="stock" class="form-control"
-                        placeholder="Existencias del producto" ngModel>
+                    <input type="number" name="stock" id="stock" customMin [minimo]="0" class="form-control"
+                        placeholder="Existencias del producto" [ngModel]="initForm.stock" required>
                     <!-- <span class="form-text text-danger">Debe tener minimo 3 letras</span> -->
                 </div>
             </div>
@@ -52,5 +52,8 @@
     </div>
     <div class="col"><span>Touched</span>
         <pre> {{miFormulario.touched |json}} </pre>
-    </div>
+
+    <!-- <div class="col"><span>CustomDirective</span>
+        <pre> {{miFormulario.controls['stock']?.errors|json}} </pre>
+    </div> -->
 </div>
